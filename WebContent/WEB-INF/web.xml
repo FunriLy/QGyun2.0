@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Server</display-name>
+=======
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>QGYun</display-name>
+>>>>>>> fang rui add version 2.0
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+  
+<servlet>
+    <servlet-name>ResourceAdd</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceAdd</servlet-class>
+ </servlet>
+ <servlet-mapping>
+    <servlet-name>ResourceAdd</servlet-name>
+    <url-pattern>/ResourceAdd</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ResourceDelete</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceDelete</servlet-class>
+ </servlet>
+ <servlet-mapping>
+    <servlet-name>ResourceDelete</servlet-name>
+    <url-pattern>/ResourceDelete</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ResourceGet</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceGet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+    <servlet-name>ResourceGet</servlet-name>
+    <url-pattern>/ResourceGet</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>ResourceRename</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceRename</servlet-class>
+ </servlet>
+ <servlet-mapping>
+    <servlet-name>ResourceRename</servlet-name>
+    <url-pattern>/ResourceRename</url-pattern>
+  </servlet-mapping>
+ 
+  
+  <servlet>
+    <servlet-name>ResourceSearch</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceSearch</servlet-class>
+ </servlet>
+ <servlet-mapping>
+    <servlet-name>ResourceSearch</servlet-name>
+    <url-pattern>/ResourceSearch</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+    <listener>
+    <listener-class>com.qg.util.TestContextListerUtil</listener-class>
+  </listener>
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>com.qg.util.EncodingFilterUtil</filter-class>
+    <init-param>
+      <param-name>ENCODING</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+=======
+  <listener>
+    <listener-class>com.qg.util.TestContextListerUtil</listener-class>
+  </listener>
+  <filter>
+    <filter-name>EncodingFilterUtil</filter-name>
+    <filter-class>com.qg.util.EncodingFilterUtil</filter-class>
+ 
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilterUtil</filter-name>
+    <servlet-name>/*</servlet-name>
+  </filter-mapping>
+>>>>>>> fang rui add version 2.0
+  <servlet>
+    <servlet-name>UserAlterInformation</servlet-name>
+    <servlet-class>com.qg.servlet.UserAlterInformationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAlterInformation</servlet-name>
+    <url-pattern>/UserAlterInformation</url-pattern>
+  </servlet-mapping>
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+  
+=======
+>>>>>>> fang rui add version 2.0
+  <servlet>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>com.qg.servlet.UserLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+  
+=======
+>>>>>>> fang rui add version 2.0
+  <servlet>
+    <servlet-name>UserRegister</servlet-name>
+    <servlet-class>com.qg.servlet.UserRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegister</servlet-name>
+    <url-pattern>/UserRegister</url-pattern>
+  </servlet-mapping>
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+  
+  <servlet>
+    <servlet-name>UserExit</servlet-name>
+    <servlet-class>com.qg.servlet.UserExit</servlet-class>
+=======
+  <servlet>
+    <servlet-name>UserExit</servlet-name>
+    <servlet-class>com.qg.servlet.UserExitServlet</servlet-class>
+>>>>>>> fang rui add version 2.0
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserExit</servlet-name>
+    <url-pattern>/UserExit</url-pattern>
+  </servlet-mapping>
+  
+<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
+=======
+  <servlet>
+    <servlet-name>ResourceAdd</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceAdd</servlet-name>
+    <url-pattern>/ResourceAdd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResourceDelete</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceDelete</servlet-name>
+    <url-pattern>/ResourceDelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResourceGet</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceGet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceGet</servlet-name>
+    <url-pattern>/ResourceGet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResourceRename</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceRename</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceRename</servlet-name>
+    <url-pattern>/ResourceRename</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResourceSearch</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceSearch</servlet-name>
+    <url-pattern>/ResourceSearch</url-pattern>
+  </servlet-mapping>  
+    <servlet>
+    <servlet-name>ResourceDownloadServlet</servlet-name>
+    <servlet-class>com.qg.servlet.ResourceDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourceDownloadServlet</servlet-name>
+    <url-pattern>/ResourceDownload</url-pattern>
+  </servlet-mapping>
+  
+  
+>>>>>>> fang rui add version 2.0
+</web-app>
