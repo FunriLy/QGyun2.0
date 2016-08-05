@@ -79,7 +79,7 @@ public class UserDao {
 			/*
 			 *  用户注册后，默认用户头像路径ַ
 			 */
-			pStatement.setString(3, "123");
+			pStatement.setString(3, "all.jpg");
 			pStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

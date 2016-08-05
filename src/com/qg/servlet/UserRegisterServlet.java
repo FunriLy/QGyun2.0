@@ -18,10 +18,7 @@ import com.qg.service.UserService;
 /**
  * Servlet implementation class UserRegisterServlet
  */
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe:src/com/qg/servlet/UserRegisterServlet.java
-=======
 
->>>>>>> fang rui add version 2.0:src/com/qg/servlet/UserRegisterServlet.java
 public class UserRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static final int success = 1;  
@@ -40,7 +37,6 @@ public class UserRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		System.out.println("123");
 		
 		String jsonString = URLDecoder.decode(request.getParameter("orderJson"),"UTF-8");
 		Map<String, Boolean> feedback = new HashMap<String, Boolean>();

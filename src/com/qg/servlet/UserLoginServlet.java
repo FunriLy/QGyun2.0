@@ -37,7 +37,6 @@ public class UserLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println("GET方法");
 		doPost(request, response);
 	}
 
@@ -46,33 +45,19 @@ public class UserLoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe:src/com/qg/servlet/UserLoginServlet.java
 		
-		System.out.println("123455789");
-		
-=======
-		System.out.println("POST方法");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		/*
 		 * 测试
 		 */
-		System.out.println("连接服务器成功");
->>>>>>> fang rui add version 2.0:src/com/qg/servlet/UserLoginServlet.java
 		String jsonString = URLDecoder.decode(request.getParameter("orderJson"),"UTF-8");
-		//String jsonString = new String(request.getParameter("orderJson").getBytes("iso-8859-1"),"UTF-8");
-		System.out.println("qqq");
 		Map<String, Boolean> feedback = new HashMap<String, Boolean>();
 		UserService userService = new UserService();
 		//解析Jsong
 		Gson gson = new Gson();
 		UserModel user = gson.fromJson(jsonString, UserModel.class);
 		
-		/*
-		 * 测试
-		 */
-		System.out.println("name="+user.getUserName());
-		System.out.println("password="+user.getUserPassword());
 		
 		int result = 1;
 		//遍历在线用户，防止重复登陆
@@ -93,7 +78,8 @@ public class UserLoginServlet extends HttpServlet {
 		}
 		else {
 			/*
-			 *  用户密码错误
+			 * 用户已经登录
+			 * 用户密码错误
 			 * 用户不存在
 			 */
 			feedback.put("login", false);
@@ -103,7 +89,6 @@ public class UserLoginServlet extends HttpServlet {
 		DataOutputStream outrput = new DataOutputStream(response.getOutputStream());
 		
 		outrput.writeBytes(gson.toJson(feedback));
-		//outrput.writeBytes("是官方");
 		outrput.flush();
 		outrput.close();
 	}

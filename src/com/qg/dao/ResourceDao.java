@@ -6,10 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-=======
 import java.text.SimpleDateFormat;
->>>>>>> fang rui add version 2.0
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,10 +27,7 @@ public class ResourceDao {
 	 * @param id
 	 * @return 文件的对象
 	 */
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-=======
 	 SimpleDateFormat formatter; 
->>>>>>> fang rui add version 2.0
 	public ResourceModel getResourceById(int id){
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -49,11 +43,7 @@ public class ResourceDao {
 			while(rs.next()){
 				resource.setResourceName(rs.getString(2));
 				resource.setResourceId(id);
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-				resource.setResourceUploadTime(rs.getTimestamp(3));
-=======
 				resource.setResourceUploadTime(new SimpleDateFormat ("yyyy-MM-dd HH:mm").format(rs.getTimestamp(3)));
->>>>>>> fang rui add version 2.0
 				resource.setUploaderId(rs.getInt(4));
 				resource.setUploaderName(userDao.getUsernameByUserid(rs.getInt(4)));
 				resource.setResourcePath(rs.getString(5));
@@ -135,14 +125,10 @@ public class ResourceDao {
 			rs=stmt.executeQuery();
 			while(rs.next()){
 				UserDao userDao = new UserDao();
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-				ResourceModel resourceModel = new ResourceModel(rs.getInt(1),rs.getInt(4),rs.getString(2),rs.getTimestamp(3),rs.getString(5));
-=======
 				ResourceModel resourceModel = new ResourceModel(rs.getInt(1),rs.getInt(4),rs.getString(2),new SimpleDateFormat ("yyyy-MM-dd HH:mm").format(rs.getTimestamp(3)),rs.getString(5));
 				rs.getTimestamp(3);
 				
 				
->>>>>>> fang rui add version 2.0
 				resourceModel.setUploaderName(userDao.getUsernameByUserid(rs.getInt(4)));
 				resources.add(resourceModel);
 			}
@@ -224,11 +210,7 @@ public class ResourceDao {
 			rs=stmt.executeQuery();
 			while(rs.next()){
 				UserDao userDao = new UserDao();
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-				ResourceModel resourceModel = new ResourceModel(rs.getInt(1),rs.getInt(4),rs.getString(2),rs.getTimestamp(3),rs.getString(5));
-=======
 				ResourceModel resourceModel = new ResourceModel(rs.getInt(1),rs.getInt(4),rs.getString(2),new SimpleDateFormat ("yyyy-MM-dd HH:mm").format(rs.getTimestamp(3)),rs.getString(5));
->>>>>>> fang rui add version 2.0
 				resourceModel.setUploaderName(userDao.getUsernameByUserid(rs.getInt(4)));
 				resources.add(resourceModel);
 			}

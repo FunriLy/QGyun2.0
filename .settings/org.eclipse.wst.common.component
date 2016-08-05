@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-    <wb-module deploy-name="Server">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Server"/>
-        <property name="java-output-path" value="/Server/build/classes"/>
-=======
     <wb-module deploy-name="QGYun">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="QGYun"/>
         <property name="java-output-path" value="/QGYun/build/classes"/>
->>>>>>> fang rui add version 2.0
+        <property name="context-root" value="QGYun"/>
     </wb-module>
 </project-modules>

@@ -8,34 +8,26 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import sun.misc.BASE64Encoder;
+import sun.misc.BASE64Encoder;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.qg.model.*;
 import com.qg.service.ResourceService;
 public class ResourceDownloadServlet extends HttpServlet {
-
+	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 				// 先获得下载文件 id
-				Gson gson = new Gson();
-				String json = URLDecoder.decode(request.getParameter("orderJson"),"UTF-8");	
-				//resourceId---资源ID参数
-				//resourceMap---Map参数
-				Map<String, Integer> resourceMap=gson.fromJson(json, new TypeToken<Map<String, Integer>>(){}.getType());
-				int ID = resourceMap.get("resourceId");
-				
+				String resourceId = URLDecoder.decode(request.getParameter("resourceId"),"UTF-8");	
+				int ID = Integer.parseInt(resourceId);
+				System.out.println("用户正在下载连接");
 				ResourceService resourceService = new ResourceService();
 				// 去数据库查询
 				ResourceModel  resourceModel  = resourceService.getResourceById(ID);
@@ -57,10 +49,10 @@ public class ResourceDownloadServlet extends HttpServlet {
 								"attachment;filename=" + filename);
 					} else if (agent.contains("Mozilla")) {
 						// 火狐浏览器 采用Base64编码
-						//BASE64Encoder base64Encoder = new BASE64Encoder();
-						//filename = "=?UTF-8?B?"
-							//	+ new String(base64Encoder.encode(filename
-								//		.getBytes("UTF-8"))) + "?=";
+						BASE64Encoder base64Encoder = new BASE64Encoder();
+						filename = "=?UTF-8?B?"
+								+ new String(base64Encoder.encode(filename
+										.getBytes("UTF-8"))) + "?=";
 
 						response.setHeader("Content-Disposition",
 								"attachment;filename=" + filename);
@@ -75,7 +67,9 @@ public class ResourceDownloadServlet extends HttpServlet {
 					OutputStream out = response.getOutputStream();
 					InputStream in = new BufferedInputStream(new FileInputStream(
 							getServletContext().getRealPath(
-									"/WEB-INF/resource" +  "/"+ resourceModel.getResourceName())));
+								 "/"+ resourceModel.getResourceName())));
+//					getServletContext().getRealPath(
+//							"/WEB-INF/resource" +  "/"+ resourceModel.getResourceName())));
 					int temp;
 					while ((temp = in.read()) != -1) {
 						out.write(temp);

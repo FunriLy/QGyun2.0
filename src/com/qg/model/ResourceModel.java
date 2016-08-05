@@ -1,9 +1,5 @@
 package com.qg.model;
 
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-import java.util.Date;
-=======
->>>>>>> fang rui add version 2.0
 /***
  * 
  * @author dragon
@@ -17,19 +13,11 @@ public class ResourceModel {
 	private String uploaderName;
 	private int uploaderId;
 	private String resourceName;
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-	private Date resourceUploadTime;
-	private String resourcePath;
-	
-	public ResourceModel(){}
-	public ResourceModel(int resourceId,int uploaderId,String resourceName,Date resourceUploadTime,String resourcePath){
-=======
 	private String resourceUploadTime;
 	private String resourcePath;
 	
 	public ResourceModel(){}
 	public ResourceModel(int resourceId,int uploaderId,String resourceName,String resourceUploadTime,String resourcePath){
->>>>>>> fang rui add version 2.0
 		this.resourceId=resourceId;
 		this.uploaderId=uploaderId;
 		this.resourceName=resourceName;
@@ -42,19 +30,14 @@ public class ResourceModel {
 //		this.resourcePath=resourcePath;
 //		this.resourceUploadTime=resourceUploadTime;
 //	}
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-//	public ResourceModel(String uploaderName,String resourceName){
-//		this.uploaderName=uploaderName;
-//		this.resourceName=resourceName;
-//		this.resourcePath="";
-//	}
-=======
-	public ResourceModel(String uploaderName,String resourceName){
+	public ResourceModel(String uploaderName ){
+		this.uploaderName=uploaderName;
+	}
+	
+	public ResourceModel(String uploaderName, String resourceName){
 		this.uploaderName=uploaderName;
 		this.resourceName=resourceName;
-		this.resourcePath="";
 	}
->>>>>>> fang rui add version 2.0
 	/**
 	 * 这是一个设置上传者名字的方法
 	 * @param uploaderName
@@ -109,11 +92,7 @@ public class ResourceModel {
 	 * 这是一个获取上传时间的方法
 	 * @return 文件上传的时间
 	 */
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-	public Date getResourceUploadTime(){
-=======
 	public String getResourceUploadTime(){
->>>>>>> fang rui add version 2.0
 		return resourceUploadTime;
 	}
 	/**
@@ -141,11 +120,7 @@ public class ResourceModel {
 	 * 这是一个设置文件上传时间的方法
 	 * @param resourceUploadTime 文件上传的时间
 	 */
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-	public void setResourceUploadTime(Date resourceUploadTime){
-=======
 	public void setResourceUploadTime(String resourceUploadTime){
->>>>>>> fang rui add version 2.0
 		this.resourceUploadTime=resourceUploadTime;
 	}
 }

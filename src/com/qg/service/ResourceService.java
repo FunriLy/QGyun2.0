@@ -1,9 +1,6 @@
 package com.qg.service;
 
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-=======
 import java.io.File;
->>>>>>> fang rui add version 2.0
 import java.util.List;
 
 import com.qg.dao.ResourceDao;
@@ -33,9 +30,15 @@ public class ResourceService {
 	public void addResource(ResourceModel resourceModel) {
 		/*判断数据库中是否会有相同的文件名*/
 		if(findResource(resourceModel.getResourceName())){
-			String newName = resourceModel.getResourceName()+resourceModel.getUploaderId()+(int)(Math.random()*1000);
+//			String newName = resourceModel.getResourceName()+resourceModel.getUploaderId()+(int)(Math.random()*1000);
+			String newName=resourceModel.getResourceName().substring(0,resourceModel.getResourceName().lastIndexOf("."))
+					+resourceModel.getUploaderId()+(int)(Math.random()*100)+
+					"."+resourceModel.getResourceName().substring(resourceModel.getResourceName().lastIndexOf(".")+1);
 			while(findResource(newName)){
-			newName = resourceModel.getResourceName()+resourceModel.getUploaderId()+(int)(Math.random()*1000);
+//			newName = resourceModel.getResourceName()+resourceModel.getUploaderId()+(int)(Math.random()*1000);
+				newName=resourceModel.getResourceName().substring(0,resourceModel.getResourceName().lastIndexOf("."))
+						+resourceModel.getUploaderId()+(int)(Math.random()*100)+
+						"."+resourceModel.getResourceName().substring(resourceModel.getResourceName().lastIndexOf(".")+1);
 			}
 			resourceModel.setResourceName(newName);
 			resourceDao.addResource(resourceModel);
@@ -54,17 +57,8 @@ public class ResourceService {
 	 * 这是一个重新命名文件的方法
 	 * @param resourceId 文件所对应的ID
 	 * @param newName 文件的新名字
+	 * @param path 文件路径
 	 */
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-	public void resourceRename(int resourceId,String newName){
-		/*判断数据库中是否会有相同的文件名*/
-		if(findResource(newName)){
-			 newName = newName+resourceId;
-			 resourceDao.resourceRename(resourceId, newName);
-		}
-		else
-		resourceDao.resourceRename(resourceId, newName);
-=======
 	public boolean resourceRename(File path,int resourceId,String newName){
 		/*判断数据库中是否会有相同的文件名*/
 		
@@ -74,13 +68,12 @@ public class ResourceService {
 							newName=newName+".";
 						}
 						newName=newName.substring(0,newName.lastIndexOf("."))+resourceId+(int)(Math.random()*100)+"."+newName.substring(newName.lastIndexOf(".")+1);
-					
 					}
 				       File oldfile=new File(path+"/"+resourceDao.getResourceById(resourceId).getResourceName());  
 				       System.out.println(oldfile);
-				        File newfile=new File(path+"/"+newName);
-				        System.out.println(newfile);
-							if(oldfile.renameTo(newfile)) {
+				       File newfile=new File(path+"/"+newName);
+				       System.out.println(newfile);
+					   if(oldfile.renameTo(newfile)) {
 								 resourceDao.resourceRename(resourceId, newName);
 							    System.out.println("已重命名");
 							    return true;
@@ -92,11 +85,10 @@ public class ResourceService {
 				else
 				{
 					File oldfile=new File(path+"/"+resourceDao.getResourceById(resourceId).getResourceName());   
-					System.out.println(oldfile);
+					System.out.println("旧名字"+oldfile);
 			        File newfile=new File(path+"/"+newName); 
-			        System.out.println(newfile);
-			        System.out.println(oldfile.exists());
-			        	if(oldfile.renameTo(newfile)) {
+			        System.out.println("新名字"+newfile);
+			        if(oldfile.renameTo(newfile)) {
 			               	resourceDao.resourceRename(resourceId, newName);
 						    System.out.println("已重命名");
 						    return true;
@@ -105,7 +97,6 @@ public class ResourceService {
 						    return false;
 						 }
 	}
->>>>>>> fang rui add version 2.0
 	}
 	/**
 	 * 这是一个查询文件名是否会重复的方法
@@ -132,8 +123,6 @@ public class ResourceService {
 	public List<ResourceModel>getResource(int pageNumber){
 		return resourceDao.getResource(pageNumber);
 	}
-<<<<<<< a0a6b20c8a993bf00417359da73686b7ca4dabbe
-=======
 	
 	/**   
      * 删除单个文件   
@@ -152,5 +141,4 @@ public class ResourceService {
         }     
     } 
    
->>>>>>> fang rui add version 2.0
 }
